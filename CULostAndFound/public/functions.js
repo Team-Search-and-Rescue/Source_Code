@@ -1,4 +1,4 @@
-const iitemName = document.getElementById('itemName');
+const itemName = document.getElementById('itemName');
 const isummary = document.getElementById('itemsummary');
 const iposterName = document.getElementById('itemposterName');
 const ilocation = document.getElementById('itemlocation');
@@ -16,3 +16,21 @@ addBtn.addEventListener('click', (e) => {
         place: ilocation.value
     })
 })
+//add 
+const addItem = () => {
+    const item = {
+        itemName_: itemName,
+        isummary_: isummary,
+        itemposterName_: itemposterName,
+        itemlocation_: itemlocation
+    }
+    //add the item then reset the form.
+    database.add(item).then(() => {
+        form.itemName.value = "",
+        form.isummary.value = "",
+        form.itemposterName.value = "",
+        form.itemlocation.value = ""
+    
+        alert('Your item has been added successfully')
+    })
+}
