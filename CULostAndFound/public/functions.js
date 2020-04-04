@@ -24,3 +24,15 @@ addBtn.addEventListener('click', (e) => {
     })
     alert('Your item has been added successfully')
 })
+
+// searchButton.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     const query1 = database.where('color', '==', 'Black');
+//     const query2 = 
+//     query1.get()
+//     .then(snapshot => {
+//         snapshot.foreach(item => {
+//             console.log(item)
+//         })
+//     })
+// })
