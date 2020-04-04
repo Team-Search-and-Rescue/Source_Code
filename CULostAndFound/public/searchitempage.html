@@ -37,13 +37,7 @@
         }
 
         </style>
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="/__/firebase/7.9.2/firebase-app.js"></script>
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="/__/firebase/7.9.2/firebase-analytics.js"></script>
-        <!-- Initialize Firebase -->
-        <script src="/__/firebase/init.js"></script>
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,7 +52,6 @@
           <a class="navbar-brand">CU Lost and Found</a>
           <ul class="navbar-nav">
             <li class="nav-item">
-<<<<<<< HEAD
               <a class="nav-link" href="index.html">Homepage</a>
             </li>
             <li class="nav-item">
@@ -66,15 +59,6 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="searchitempage.html">Lost Item</a>
-=======
-              <a class="nav-link" href="./index.html">Homepage</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./additempage.html">Found Item</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./searchitempage.html">Lost Item</a>
->>>>>>> 1a303af5c8dfa1c354a9cd61cd41f8baf676a19e
             </li>
           </ul>
         </nav>
@@ -90,7 +74,7 @@
             <div class="input-group mb-3">
               <input type="itemQueryText" class="form-control" placeholder="Search for Item" aria-label="Search for Item" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="searchButton">Search</button>
+                <button id="searchBttn" class="btn btn-outline-secondary" type="searchButton">Search</button>
               </div>
             </div>
             <div class="card">
@@ -106,21 +90,17 @@
                     <label for="sell">Color: </label>
                     <select class="form-control" id="color">
 <option>Other</option>
-                  <option>Black</option>
-                  <option>Blue</option>
-                  <option>Brown - Tan</option>
-                  <option>Gold</option>
-                  <option>Grey</option>
-                  <option>Green</option> 
-                  <option>Maroon</option>
-                  <option>Orange</option>
-                  <option>Peach</option>
-                  <option>Pink</option>
-                  <option>Platinum</option>
-                  <option>Red</option>
-                  <option>Silver</option>
                   <option>White</option>
-                  <option>Yellow</option>
+                  <option>Black</option>
+                  <option>Brown/tan</option>
+                  <option>Red</option>
+                  <option>Orange</option>
+                  <option>Yellow/Gold</option>
+                  <option>Green</option>
+                  <option>Blue</option>
+                  <option>Purple</option>
+                  <option>Grey/Silver</option>
+                  <option>Other</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -185,5 +165,30 @@
           </div>
       </div>
     </div>
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>
+
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-analytics.js"></script>
+
+      <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+      apiKey: "AIzaSyDGDyPzb7NFU7UD_F6hMMiIgRaHmHgAEWY",
+      authDomain: "team-lost-and-found-7cea4.firebaseapp.com",
+      databaseURL: "https://team-lost-and-found-7cea4.firebaseio.com",
+      projectId: "team-lost-and-found-7cea4",
+      storageBucket: "team-lost-and-found-7cea4.appspot.com",
+      messagingSenderId: "854064033647",
+      appId: "1:854064033647:web:002f2cb621c90863ac029a",
+     measurementId: "G-38T9R7RGV7"
+     };
+     // Initialize Firebase
+     firebase.initializeApp(firebaseConfig);
+     firebase.analytics();
+     </script>
+     <script src="./searchitem.js"></script>
       </body>
     </html>

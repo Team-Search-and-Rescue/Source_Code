@@ -10,29 +10,19 @@ const updateBtn = document.getElementById('updateBtn');
 const removeBtn = document.getElementById('removeBtn');
 
 const database = firebase.database();
-const convertDate = idate.toString();
+var ref = database.ref('items');
 
 addBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    database.ref('/items/'+ iTitle.value).set({
-        posterName: iposterName.value,
-        status: iStatus.value,
-        location: ilocation.value,
-        category: icategory.value,
-        color: icolor.value,
-        date: convertDate
-    })
+    var inputData = {
+        title : iTitle.value,
+        status : iStatus.value,
+        category : icategory.value,
+        postername : iposterName.value,
+        location : ilocation.value,
+        color : icolor.value,
+        date : idate.value
+    }
+    ref.push(inputData);
     alert('Your item has been added successfully')
 })
-
-// searchButton.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     const query1 = database.where('color', '==', 'Black');
-//     const query2 = 
-//     query1.get()
-//     .then(snapshot => {
-//         snapshot.foreach(item => {
-//             console.log(item)
-//         })
-//     })
-// })
