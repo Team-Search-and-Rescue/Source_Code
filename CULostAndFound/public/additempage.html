@@ -1,35 +1,130 @@
-<script type="text/javascript" src="additemfunction.js"></script>
+<!--Marissa Zuyus-->
+
 <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, intial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Database test</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link rel="stylesheet" href="./style.css">
-      </head>
-      <body>
-        <main>
-          <form>
-            <label for ="itemName">Item</label><br>
-            <input type="text" name="itemName" id="itemName"><br>
-            <label for ="itemsummary">Summary</label><br>
-            <input type="text" name="itemsummary" id="itemsummary"><br>
-            <label for ="itemposterName">Poster Name</label><br>
-            <input type="text" name="itemposterName" id="itemposterName"><br>
-            <label for ="itemlocation">Location</label><br>
-            <input type="text" name="itemlocation" id="itemlocation"><br>
-            <button id="addBtn" class="btn waves-effect waves-light">Add</button>
-            <button id="updateBtn" class="btn waves-effect waves-light">Update</button>
-            <button id="removeBtn" class="btn waves-effect red darken-1"></button>
-          </form>
-        </main>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    </head>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand">CU Lost and Found</a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Homepage</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="additempage.html">Found Item</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="searchitempage.html">Lost Item</a>
+          </li>
+        </ul>
+    </nav>
+
+
+    <div class="container">
+
+
+    
+    <form class="form-horizontal">
+        
+        <div class="jumbotron" style="background-image: url(https://www.colorado.edu/brand/sites/default/files/styles/large_square_thumbnail/public/callout/color-gold.png?itok=NVNSR2gK); background-size: 100%;">
+            <h1 class="display-4">Add Listing</h1>
+            <p class="lead">Here you can create a new listing for an item you either lost or found. Select which applies to your item and the correct tags.</p>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+          <label for="sell">Select type: </label>
+          <select class="form-control" id="status" >
+              <option>Lost</option>
+              <option>Found</option>
+          </select>
+        </div>
+
+          <br>
+
+          <div class="form-group">
+              <label for="formGroupExampleInput">Item Title</label>
+              <input type="text" class="form-control" id="itemTitle" placeholder=" Short description - example: '[Color] [Breed] Dog' or '[Color] [Brand] Bag' or '[Brand Model] Phone'">
+          </div>
+          
+          <div class="form-group">
+            <label for="formGroupExampleInput">Poster</label>
+            <input type="text" class="form-control" id="itemposterName" placeholder="Poster name">
+          </div>
+
+          <br>
+
+          <h2>Tags</h2>
+
+          <div class="form-group">
+              <label for="sell">Select color: </label>
+              <select class="form-control" id="color" >
+                  <option>Other</option>
+                  <option>Black</option>
+                  <option>Blue</option>
+                  <option>Brown - Tan</option>
+                  <option>Gold</option>
+                  <option>Grey</option>
+                  <option>Green</option> 
+                  <option>Maroon</option>
+                  <option>Orange</option>
+                  <option>Peach</option>
+                  <option>Pink</option>
+                  <option>Platinum</option>
+                  <option>Red</option>
+                  <option>Silver</option>
+                  <option>White</option>
+                  <option>Yellow</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+            <label for="formGroupExampleInput">Location</label>
+            <input type="text" class="form-control" id="itemlocation" placeholder="Location item was lost/found">
+        </div>
+
+        <div class="form-group">
+            <label for="sell">Select category: </label>
+            <select class="form-control" id="category" >
+              <option>Other</option>
+              <option>Accessories</option>
+              <option>Bags & Backpacks</option>
+              <option>Books</option>
+              <option>Cell Phones & Accessories</option>
+              <option>Clothing & Jewelry</option>
+              <option>Computers</option>
+              <option>Electronics</option>
+              <option>Keys & Cards</option>
+              <option>Luggage & Travel Gear</option>
+              <option>Office & School Supplies</option>
+              <option>Sports & Outdoors</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="formGroupExampleInput">Date Lost</label>
+            <input type="date" class="form-control" id="date" placeholder="mm/dd/yyyy">
+        </div>
+
+        <button id="addBtn" type="submit" class="btn btn-primary">Submit</button>
+
+        <br>
+        <br>
+
+        
+
+    </form>
+    </div>
+    <body>
         <!-- The core Firebase JS SDK is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>
 
-        <!-- TODO: Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
         <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-analytics.js"></script>
 
         <script>
@@ -42,12 +137,12 @@
         storageBucket: "team-lost-and-found-7cea4.appspot.com",
         messagingSenderId: "854064033647",
         appId: "1:854064033647:web:002f2cb621c90863ac029a",
-        measurementId: "G-38T9R7RGV7"
-        };  
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-        </script>
-        <script src="./functions.js"></script>
-      </body>
-    </html>
+       measurementId: "G-38T9R7RGV7"
+       };
+       // Initialize Firebase
+       firebase.initializeApp(firebaseConfig);
+       firebase.analytics();
+       </script>
+       <script src="./functions.js"></script>
+    </body>
+</html>

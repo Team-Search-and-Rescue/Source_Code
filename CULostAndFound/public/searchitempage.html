@@ -4,6 +4,38 @@
         <title>Search Item</title>
         <style>
         h1 {text-align:center;}
+        .lost_button {
+          display: block;
+          width: 200px;
+          height: 60px;
+          border: none;
+          background-color: #cfb87c;
+          color: white;
+          padding: 14px 28px;
+          font-size: 18px;
+          border-radius: 6px;
+          cursor: pointer;
+          text-align: center;
+        }
+
+        .lost_button:hover {
+          background-color: black;
+          color: white;
+        }
+
+        .tags {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border: none;
+          background-color: #cfb87c;
+          color: white;
+          padding: 14px 28px;
+          font-size: 20px;
+          border-radius: 6px;
+          cursor: pointer;
+        }
+
         </style>
         <!-- The core Firebase JS SDK is always required and must be listed first -->
         <script src="/__/firebase/7.9.2/firebase-app.js"></script>
@@ -26,36 +58,122 @@
           <a class="navbar-brand">CU Lost and Found</a>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">Homepage</a>
+              <a class="nav-link" href="index.html">Homepage</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Found Item</a>
+              <a class="nav-link" href="additempage.html">Found Item</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Lost Item</a>
+              <a class="nav-link" href="searchitempage.html">Lost Item</a>
             </li>
           </ul>
         </nav>
         <br>
+        <div class="container-fluid">
         <h1 text-align='center'>Search for a lost item</h1>
         <div class='row'>
           <div class='col'>
             <h4> Can't find your item?</h4>
-            <a href="https://google.com" class="btn btn-warning">Declare lost item</a>
+            <a href="./additempage.html"><button class="lost_button" type="declare" class="btn btn-warning">Declare lost item</button></a>
           </div>
           <div class='col-6'>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search for Item" aria-label="Search for Item" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button">Search</button>
+            <div class="input-group mb-3">
+              <input type="itemQueryText" class="form-control" placeholder="Search for Item" aria-label="Search for Item" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="searchButton">Search</button>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">Search Results</div>
             </div>
           </div>
-          <div class="card">
-          <div class="card-body">Search Results</div>
-        </div>
-          </div>
           <div class='col'>
+            <div class="card">
+
+              <div class="tags" class="card-body">
+                <h2>Tags</h2>
+                <div class="form-group">
+                    <label for="sell">Color: </label>
+                    <select class="form-control" id="color">
+<option>Other</option>
+                  <option>Black</option>
+                  <option>Blue</option>
+                  <option>Brown - Tan</option>
+                  <option>Gold</option>
+                  <option>Grey</option>
+                  <option>Green</option> 
+                  <option>Maroon</option>
+                  <option>Orange</option>
+                  <option>Peach</option>
+                  <option>Pink</option>
+                  <option>Platinum</option>
+                  <option>Red</option>
+                  <option>Silver</option>
+                  <option>White</option>
+                  <option>Yellow</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                  <label for="sell">Select location: </label>
+                  <select class="form-control" id="location" >
+                      <option>Other</option>
+                      <option>Residence Hall</option>
+                      <option>AERO</option>
+                      <option>ATLS</option>
+                      <option>BESC</option>
+                      <option>C4C</option>
+                      <option>CASE</option>
+                      <option>CLRE</option>
+                      <option>DUAN</option>
+                      <option>EC</option>
+                      <option>EKLC</option>
+                      <option>FLMG</option>
+                      <option>GOLD</option>
+                      <option>HALE</option>
+                      <option>HLMS</option>
+                      <option>HUMN</option>
+                      <option>ITLL</option>
+                      <option>KOBL</option>
+                      <option>KTCH</option>
+                      <option>LIBR</option>
+                      <option>MAIN</option>
+                      <option>MATH</option>
+                      <option>MCKY</option>
+                      <option>MKNA</option>
+                      <option>MUEN</option>
+                      <option>RAMY</option>
+                      <option>REC</option>
+                      <option>UMC</option>
+                      <option>VAC</option>
+                      <option>WARD</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label for="sell">Select category: </label>
+                  <select class="form-control" id="category" >
+                      <option>Other</option>
+                      <option>Accessories</option>
+                      <option>Bags & Backpacks</option>
+                      <option>Books</option>
+                      <option>Cell Phones & Accessories</option>
+                      <option>Clothing & Jewelry</option>
+                      <option>Computers</option>
+                      <option>Electronics</option>
+                      <option>Keys & Cards</option>
+                      <option>Luggage & Travel Gear</option>
+                      <option>Office & School Supplies</option>
+                      <option>Sports & Outdoors</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                <label for="date-lost">Date Lost:</label>
+                <input type="date" id="date-lost" name="date-lost">
+              </div>
+
+              </div>
+            </div>
           </div>
       </div>
+    </div>
       </body>
     </html>
