@@ -1,13 +1,15 @@
 const searchButton = document.getElementById('searchBttn');
 
-var database = firebase.database();
-
+const database = firebase.database();
 var ref = database.ref('items');
 
 searchButton.addEventListener('click', (e) =>{
     e.preventDefault();
-    //console.log("Button Works!");
-    //alert("button works!")
+    searchAllItems();
+})
+
+const searchAllItems = () => {
+    
     console.log('testing retrival!');
     var itemsref = firebase.database().ref("items");
     itemsref.on('value', function(snapshot) {
@@ -16,4 +18,9 @@ searchButton.addEventListener('click', (e) =>{
             console.log(childData);
         });
     });
-})
+}
+
+const filterByOneCategory = () => {
+
+    console.log('testing search by one category!');
+}
