@@ -29,16 +29,9 @@ const addItem = () => {
         date : idate.value
     }
     console.log('Your item has been added successfully');
-    //add the item then reset the form.
-    // ref.push(inputData).then(() => {
-    //     form.status.value = "",
-    //     form.itemTitle.value = "",
-    //     form.itemposterName.value = "",
-    //     form.color.value = "",
-    //     form.itemlocation.value = "",
-    //     form.category.value = "",
-    //     form.date.value = ""
+    ref.push(inputData).then(() => {
         
-    //     alert('Your item has been added successfully');
-    // })
+        alert('Your item has been added successfully');
+        location.reload();
+    })
 }
