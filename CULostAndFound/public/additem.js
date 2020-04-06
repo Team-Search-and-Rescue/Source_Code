@@ -8,12 +8,17 @@ const idate = document.getElementById('date');
 const addBtn = document.getElementById('addBtn');
 const updateBtn = document.getElementById('updateBtn');
 const removeBtn = document.getElementById('removeBtn');
+var form = document.inputForm;
 
 const database = firebase.database();
 var ref = database.ref('items');
 
 addBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    addItem();
+})
+
+const addItem = () => {
     var inputData = {
         title : iTitle.value,
         status : iStatus.value,
@@ -23,6 +28,17 @@ addBtn.addEventListener('click', (e) => {
         color : icolor.value,
         date : idate.value
     }
-    ref.push(inputData);
-    alert('Your item has been added successfully')
-})
+    console.log('Your item has been added successfully');
+    //add the item then reset the form.
+    // ref.push(inputData).then(() => {
+    //     form.status.value = "",
+    //     form.itemTitle.value = "",
+    //     form.itemposterName.value = "",
+    //     form.color.value = "",
+    //     form.itemlocation.value = "",
+    //     form.category.value = "",
+    //     form.date.value = ""
+        
+    //     alert('Your item has been added successfully');
+    // })
+}
