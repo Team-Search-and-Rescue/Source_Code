@@ -18,7 +18,7 @@ searchButton.addEventListener('click', (e) =>{
     //console.log(allItems);
     //console.log('filter');
 
-    var filteredColor = allItems.filter(item => {
+    var filteredItems = allItems.filter(item => {
         return item.color === colorFilter;
     })
 
@@ -26,7 +26,7 @@ searchButton.addEventListener('click', (e) =>{
     //     return item.category === categoryfilter;
     // })
 
-    console.log(filteredColor);
+    console.log(filteredItems);
     // console.log(filteredCat);
 })
 
