@@ -9,7 +9,7 @@ var allItems = [];
 
 searchButton.addEventListener('click', (e) =>{
     e.preventDefault();
-    console.log(icolor.value);
+    //console.log(icolor.value);
     colorFilter = icolor.value;
     categoryfilter = icategory;
 
