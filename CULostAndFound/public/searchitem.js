@@ -1,7 +1,8 @@
 const searchButton = document.getElementById('searchBttn');
 const icolor = document.getElementById('color');
-const ilocation = document.getElementById('itemlocation');
+const ilocation = document.getElementById('location');
 const icategory = document.getElementById('category');
+const istatus = document.getElementById('status');
 const database = firebase.database();
 var ref = database.ref('items');
 var allItems = [];
@@ -10,25 +11,41 @@ var allItems = [];
 searchButton.addEventListener('click', (e) =>{
     e.preventDefault();
     //console.log(icolor.value);
+    statusFilter = istatus.value;
     colorFilter = icolor.value;
-    categoryfilter = icategory;
+    categoryFilter = icategory.value;
+    locationFilter = ilocation.value;
 
     //console.log('Searching by color');
     
     //console.log(allItems);
-    //console.log('filter');
+    //console.log('filter'); 
 
-    var filteredItems = allItems.filter(item => {
+    var filterItemStatus = allItems.filter(item => {
+        return item.status === statusFilter;
+    })
+
+    var filteredItemColor = allItems.filter(item => {
         return item.color === colorFilter;
     })
 
-    // var filteredCat = allItems.filter(item => {
-    //     return item.category === categoryfilter;
-    // })
+    var filteredItemCategory = allItems.filter(item => {
+        return item.category === categoryFilter;
+    })
 
-    console.log(filteredItems);
-    // console.log(filteredCat);
+    var filteredItemLocation = allItems.filter(item => {
+        return item.ilocation === locationFilter;
+    })
+
+    // var filteredItemDate = allItems.filter(item => {
+    //     return item.date 
+
+    console.log(filterItemStatus);
+    console.log(filteredItemColor);
+    console.log(filteredItemCategory);
+    console.log(filteredItemLocation);
 })
+
 
 const searchAllItems = () => {
     
