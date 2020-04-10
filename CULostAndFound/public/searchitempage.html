@@ -72,7 +72,7 @@
           </div>
           <div class='col-6'>
             <div class="input-group mb-3">
-              <input type="itemQueryText" class="form-control" placeholder="Search for Item" aria-label="Search for Item" aria-describedby="basic-addon2">
+              <input id="queryText" type="itemQueryText" class="form-control" placeholder="Search for Item" aria-label="Search for Item" aria-describedby="basic-addon2">
               <div class="input-group-append">
                 <button id="searchBttn" class="btn btn-outline-secondary" type="searchButton">Search</button>
               </div>
@@ -89,6 +89,7 @@
                 <div class="form-group">
                   <label for="sell">Status: </label>
                   <select class="form-control" id="status">
+                <option>Any</option> 
                 <option>Lost</option>
                 <option>Found</option>
                   </select>
@@ -96,7 +97,7 @@
                 <div class="form-group">
                     <label for="sell">Color: </label>
                     <select class="form-control" id="color">
-                  <option>Other</option>
+                  <option>Any</option>
                   <option>White</option>
                   <option>Black</option>
                   <option>Brown/tan</option>
@@ -107,12 +108,13 @@
                   <option>Blue</option>
                   <option>Purple</option>
                   <option>Grey/Silver</option>
+                  <option>Other</option>
                     </select>
                 </div>
                 <div class="form-group">
                   <label for="sell">Select location: </label>
                   <select class="form-control" id="location" >
-                      <option>Other</option>
+                      <option>Any</option>
                       <option>Residence Hall</option>
                       <option>AERO</option>
                       <option>ATLS</option>
@@ -142,12 +144,13 @@
                       <option>UMC</option>
                       <option>VAC</option>
                       <option>WARD</option>
+                      <option>Other</option>
                   </select>
               </div>
               <div class="form-group">
                   <label for="sell">Select category: </label>
                   <select class="form-control" id="category" >
-                      <option>Other</option>
+                      <option>Any</option>
                       <option>Accessories</option>
                       <option>Bags & Backpacks</option>
                       <option>Books</option>
@@ -159,6 +162,7 @@
                       <option>Luggage & Travel Gear</option>
                       <option>Office & School Supplies</option>
                       <option>Sports & Outdoors</option>
+                      <option>Other</option>
                   </select>
               </div>
               <div class="form-group">
