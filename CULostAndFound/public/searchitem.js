@@ -30,7 +30,7 @@ searchButton.addEventListener('click', (e) =>{
         date : idate.value
     }
     Querydatabase.push(inputData).then(() => {
-        
+
     })
 
     if (statusFilter != 'Any'){
@@ -63,19 +63,20 @@ searchButton.addEventListener('click', (e) =>{
         })
     }
 
-    var results = filteredItemDate;
+    //var results = filteredItemDate;
 
     console.log(results);
+
 })
 
 
 const searchAllItems = () => {
-    
+
     var itemsref = firebase.database().ref("items");
     itemsref.on('value', function(snapshot) {
         snapshot.forEach(function(childSnapshot){
             var childData = childSnapshot.val();
-            allItems.push(childData); 
+            allItems.push(childData);
         });
     });
 }
