@@ -6,8 +6,8 @@ const icategory = document.getElementById('category');
 const istatus = document.getElementById('status');
 const idate = document.getElementById('date-lost');
 const database = firebase.database();
-const ref = database.ref('items');
-const Querydatabase = database.ref('query');
+var ref = database.ref('items');
+const querydatabase = database.ref('query');
 var allItems = [];
 var results = [];
 
@@ -29,7 +29,7 @@ searchButton.addEventListener('click', (e) =>{
         category : icategory.value,
         date : idate.value
     }
-    Querydatabase.push(inputData).then(() => {
+    querydatabase.push(inputData).then(() => {
         
     })
 
@@ -57,13 +57,13 @@ searchButton.addEventListener('click', (e) =>{
         })
     }
 
-    if (DateFilter != ''){
-        var filteredItemDate = filteredItemLocation.filter(item => {
-            return item.date >= DateFilter;
-        })
-    }
+    // if (DateFilter != ''){
+    //     var filteredItemDate = filteredItemLocation.filter(item => {
+    //         return item.date >= DateFilter;
+    //     })
+    // }
 
-    var results = filteredItemDate;
+    var results = filteredItemLocation;
 
     console.log(results);
 })
