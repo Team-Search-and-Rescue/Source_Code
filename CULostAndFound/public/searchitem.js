@@ -29,6 +29,7 @@ searchButton.addEventListener('click', (e) =>{
         category : icategory.value,
         date : idate.value
     }
+    
     querydatabase.push(inputData).then(() => {
         
     })
@@ -65,17 +66,18 @@ searchButton.addEventListener('click', (e) =>{
 
     var results = filteredItemLocation;
 
-    console.log(results);
+    console.log(item);
+
 })
 
 
 const searchAllItems = () => {
-    
+
     var itemsref = firebase.database().ref("items");
     itemsref.on('value', function(snapshot) {
         snapshot.forEach(function(childSnapshot){
             var childData = childSnapshot.val();
-            allItems.push(childData); 
+            allItems.push(childData);
         });
     });
 }
