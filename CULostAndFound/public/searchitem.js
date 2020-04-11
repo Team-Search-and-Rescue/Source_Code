@@ -65,7 +65,7 @@ searchButton.addEventListener('click', (e) =>{
 
     //var results = filteredItemDate;
 
-    console.log(results);
+    console.log(item);
 
 })
 
