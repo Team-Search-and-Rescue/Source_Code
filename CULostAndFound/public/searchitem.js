@@ -11,6 +11,17 @@ const querydatabase = database.ref('query');
 var allItems = [];
 var results = [];
 
+const searchAllItems = () => {
+
+    var itemsref = firebase.database().ref("items");
+    itemsref.on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot){
+            var childData = childSnapshot.val();
+            allItems.push(childData);
+        });
+    });
+}
+
 
 searchButton.addEventListener('click', (e) =>{
     e.preventDefault();
@@ -34,30 +45,35 @@ searchButton.addEventListener('click', (e) =>{
 
     })
 
+    //filtering by status lost or found
     if (statusFilter != 'Any'){
         var filterItemStatus = allItems.filter(item => {
             return item.status === statusFilter;
         })
     }
 
+    //filters by search color
     if (colorFilter != 'Any'){
         var filteredItemColor = filterItemStatus.filter(item => {
             return item.color === colorFilter;
         })
     }
 
+    //filter with category
     if (categoryFilter != 'Any'){
         var filteredItemCategory = filteredItemColor.filter(item => {
             return item.category === categoryFilter;
         })
     }
 
+    //filter by location
     if (locationFilter != 'Any'){
         var filteredItemLocation = filteredItemCategory.filter(item => {
             return item.location === locationFilter;
         })
     }
 
+    //filter by date
     // if (DateFilter != ''){
     //     var filteredItemDate = filteredItemLocation.filter(item => {
     //         return item.date >= DateFilter;
@@ -65,11 +81,13 @@ searchButton.addEventListener('click', (e) =>{
     // }
 
     var results = filteredItemLocation;
-    if(results==0){
+    results = allItems;
+    console.log(results);
+
+    if(results === undefined || results.length==0){
       document.getElementById("searchResults").innerHTML='No items matched your search.';
       return;
     }
-    console.log(item);
     document.getElementById("searchResults").innerHTML='<table class="table" id="searchTable"><thead><tr><th scope="col">Item Name</th><th scope="col">Location Found</th><th scope="col">Date found</th></tr></thead><tbody></tbody>';
     var stable = document.getElementById("searchTable");
     var counter=0;
@@ -77,18 +95,9 @@ searchButton.addEventListener('click', (e) =>{
       stable.innerHTML+=`<tr onclick='searchModal(${counter})'><td>${results[elem].title}</td><td>${results[elem].location}</td><td>${results[elem].date}</td></tr>`;
       counter++
     }
+
+    console.log(results);
 })
 
 function searchModal(counter){
-  //TODO
-}
-const searchAllItems = () => {
-
-    var itemsref = firebase.database().ref("items");
-    itemsref.on('value', function(snapshot) {
-        snapshot.forEach(function(childSnapshot){
-            var childData = childSnapshot.val();
-            allItems.push(childData);
-        });
-    });
 }
