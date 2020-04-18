@@ -77,9 +77,16 @@ searchButton.addEventListener('click', (e) =>{
         var filteredItemCategory = filteredItemLocation;
     }
 
+    if (DateFilter != ''){
+        var filteredItemDate = filteredItemCategory.filter(item => {
+            return item.date >= DateFilter;
+        })
+    } else {
+        var filteredItemDate = filteredItemCategory;
+    }
 
 
-    results = filteredItemCategory;
+    results = filteredItemDate;
     
     if(results === undefined || results.length==0){
       document.getElementById("searchResults").innerHTML='No items matched your search.';
