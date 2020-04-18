@@ -40,9 +40,9 @@ searchButton.addEventListener('click', (e) =>{
         category : icategory.value,
         date : idate.value
     }
-    
+
     querydatabase.push(inputData).then(() => {
-        
+
     })
 
     if (statusFilter != 'Any'){
@@ -68,7 +68,7 @@ searchButton.addEventListener('click', (e) =>{
     } else {
         var filteredItemLocation = filteredItemColor;
     }
-
+  
     if (categoryFilter != 'Any'){
         var filteredItemCategory = filteredItemLocation.filter(item => {
             return item.category === categoryFilter;
