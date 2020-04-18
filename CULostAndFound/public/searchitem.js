@@ -100,7 +100,6 @@ searchButton.addEventListener('click', (e) =>{
       counter++
     }
 
-    console.log(results);
 })
 
 function searchModal(counter){
