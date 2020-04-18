@@ -65,7 +65,7 @@ searchButton.addEventListener('click', (e) =>{
     // }
 
     var results = filteredItemLocation;
-    if(results.length==0){
+    if(results==0){
       document.getElementById("searchResults").innerHTML='No items matched your search.';
       return;
     }
