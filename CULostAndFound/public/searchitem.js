@@ -45,50 +45,47 @@ searchButton.addEventListener('click', (e) =>{
         
     })
 
-    //filtering by status lost or found
     if (statusFilter != 'Any'){
-        var filterItemStatus = allItems.filter(item => {
+        var filterItemsStatus = allItems.filter(item => {
             return item.status === statusFilter;
         })
+    } else {
+        var filterItemsStatus = allItems;
     }
 
-    //filters by search color
     if (colorFilter != 'Any'){
-        var filteredItemColor = filterItemStatus.filter(item => {
+        var filteredItemColor = filterItemsStatus.filter(item => {
             return item.color === colorFilter;
         })
-    }
-   
-    //filter with category
-    if (categoryFilter != 'Any'){
-        var filteredItemCategory = filteredItemColor.filter(item => {
-            return item.category === categoryFilter;
-        })
+    } else {
+        var filteredItemColor = filterItemsStatus;
     }
 
-    //filter by location
     if (locationFilter != 'Any'){
-        var filteredItemLocation = filteredItemCategory.filter(item => {
+        var filteredItemLocation = filteredItemColor.filter(item => {
             return item.location === locationFilter;
         })
+    } else {
+        var filteredItemLocation = filteredItemColor;
     }
 
-    //filter by date
-    // if (DateFilter != ''){
-    //     var filteredItemDate = filteredItemLocation.filter(item => {
-    //         return item.date >= DateFilter;
-    //     })
-    // }
+    if (categoryFilter != 'Any'){
+        var filteredItemCategory = filteredItemLocation.filter(item => {
+            return item.category === categoryFilter;
+        })
+    } else {
+        var filteredItemCategory = filteredItemLocation;
+    }
 
-    var results = filteredItemLocation;
-    results = allItems;
-    console.log(results);
 
+
+    results = filteredItemCategory;
+    
     if(results === undefined || results.length==0){
       document.getElementById("searchResults").innerHTML='No items matched your search.';
       return;
     }
-    document.getElementById("searchResults").innerHTML='<table class="table" id="searchTable"><thead><tr><th scope="col">Item Name</th><th scope="col">Location Found</th><th scope="col">Date found</th></tr></thead><tbody></tbody>';
+    document.getElementById("searchResults").innerHTML='<table class="table" id="searchTable"><thead><tr><th scope="col">Item Name</th><th scope="col">Location Found</th><th scope="col">Date Lost</th></tr></thead><tbody></tbody>';
     var stable = document.getElementById("searchTable");
     var counter=0;
     for(var elem in results){
