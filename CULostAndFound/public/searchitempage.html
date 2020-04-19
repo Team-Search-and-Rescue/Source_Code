@@ -193,23 +193,6 @@
 
           <!-- Modal body -->
           <div class="modal-body">
-            <script>
-              $(function(){
-                  $('#myModal').modal({
-                      keyboard: true,
-                      backdrop: "static",
-                      show:false,
-                  }).on('show', function(){ //subscribe to show method
-                        var index = $(event.target).closest('tr').data('id'); //get the id from tr
-                        var result = results[index];
-                  });
-              });
-              document.getElementById('pn').innerHTML+=" "result.postername;
-              document.getElementById('loc').innerHTML+=" "result.location;
-              document.getElementById('dl').innerHTML+=" "result.date;
-              document.getElementById('cat').innerHTML+=" "result.category;
-              document.getElementById('color').innerHTML+=" "result.color;
-            </script>
             <p id='stat'>Status:</p> <!-- Item status (lost or found) goes here-->
             <br>
             <br>

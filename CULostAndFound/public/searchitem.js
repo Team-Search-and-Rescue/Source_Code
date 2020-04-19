@@ -68,7 +68,7 @@ searchButton.addEventListener('click', (e) =>{
     } else {
         var filteredItemLocation = filteredItemColor;
     }
-  
+
     if (categoryFilter != 'Any'){
         var filteredItemCategory = filteredItemLocation.filter(item => {
             return item.category === categoryFilter;
@@ -87,7 +87,7 @@ searchButton.addEventListener('click', (e) =>{
 
 
     results = filteredItemDate;
-    
+
     if(results === undefined || results.length==0){
       document.getElementById("searchResults").innerHTML='No items matched your search.';
       return;
@@ -102,5 +102,18 @@ searchButton.addEventListener('click', (e) =>{
 
 })
 
-function searchModal(counter){
-}
+$(function(){
+    $('#myModal').modal({
+        keyboard: true,
+        backdrop: "static",
+        show:false,
+    }).on('show', function(){ //subscribe to show method
+          var index = $(event.target).closest('tr').data('id'); //get the id from tr
+          var result = results[index];
+          document.getElementById('pn').innerHTML+=" "result.postername;
+          document.getElementById('loc').innerHTML+=" "result.location;
+          document.getElementById('dl').innerHTML+=" "result.date;
+          document.getElementById('cat').innerHTML+=" "result.category;
+          document.getElementById('color').innerHTML+=" "result.color;
+    });
+});
