@@ -102,18 +102,9 @@ searchButton.addEventListener('click', (e) =>{
 
 })
 
-$(function(){
-    $('#myModal').modal({
-        keyboard: true,
-        backdrop: "static",
-        show:false,
-    }).on('show', function(){ //subscribe to show method
-          var index = $(event.target).closest('tr').data('id'); //get the id from tr
-          var result = results[index];
-          document.getElementById('pn').innerHTML+=" "result.postername;
-          document.getElementById('loc').innerHTML+=" "result.location;
-          document.getElementById('dl').innerHTML+=" "result.date;
-          document.getElementById('cat').innerHTML+=" "result.category;
-          document.getElementById('color').innerHTML+=" "result.color;
-    });
+function modalPop(){
+  $('#myModal').on('show.bs.modal', function (e) {
+    var index = $(e.relatedTarget).attr('data-id');
+    console.log(index);
 });
+}

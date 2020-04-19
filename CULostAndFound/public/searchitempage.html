@@ -187,28 +187,42 @@
 
           <!-- Modal Header -->
           <div class="modal-header" style="background-color: #cfb87c;">
-            <h4 class="modal-title">Item Title</h4>
+            <script>
+            $('#myModal').on('show.bs.modal', function (e) {
+                var index = $(e.relatedTarget).attr('data-id');
+                console.log(results[index]);
+                var result = results[index];
+                document.getElementById('iT').innerHTML=result.title;
+                document.getElementById('stat').innerHTML+=result.status;
+                document.getElementById('pn').innerHTML+=result.postername;
+                document.getElementById('loc').innerHTML+=result.location;
+                document.getElementById('dl').innerHTML+=result.date;
+                document.getElementById('cat').innerHTML+=result.category;
+                document.getElementById('cl').innerHTML+=result.color;
+              });
+                </script>
+            <h4 class="modal-title" id='iT'>Item Title</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
 
           <!-- Modal body -->
           <div class="modal-body">
-            <p id='stat'>Status:</p> <!-- Item status (lost or found) goes here-->
+            <p id='stat'>Status: </p> <!-- Item status (lost or found) goes here-->
             <br>
             <br>
             <div class="container">
               <div class="row">
                 <div class="col">
-                  <p id='pn'>Poster Name:</p>
+                  <p id='pn'>Poster Name: </p>
                   <br>
-                  <p id='loc'>Location:</p>
+                  <p id='loc'>Location: </p>
                   <br>
-                  <p id='dl'>Date Lost:</p>
+                  <p id='dl'>Date Lost: </p>
                 </div>
                 <div class="col">
-                  <p id='cat'>Category:</p>
+                  <p id='cat'>Category: </p>
                   <br>
-                  <p id='color'>Color:</p>
+                  <p id='cl'>Color: </p>
                 </div>
               </div>
             </div>
