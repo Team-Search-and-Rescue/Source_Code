@@ -179,6 +179,57 @@
           </div>
       </div>
     </div>
+
+    <!-- modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header" style="background-color: #cfb87c;">
+            <h4 class="modal-title">Item Title</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <script>
+              var result = results[$(event.target).closest('tr').data('id')];  <!-- if something is wrong, its probably this -->
+              document.getElementById('pn').innerHTML+=" "result.postername;
+              document.getElementById('loc').innerHTML+=" "result.location;
+              document.getElementById('dl').innerHTML+=" "result.date;
+              document.getElementById('cat').innerHTML+=" "result.category;
+              document.getElementById('color').innerHTML+=" "result.color;
+            </script>
+            <p id='stat'>Status:</p> <!-- Item status (lost or found) goes here-->
+            <br>
+            <br>
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <p id='pn'>Poster Name:</p>
+                  <br>
+                  <p id='loc'>Location:</p>
+                  <br>
+                  <p id='dl'>Date Lost:</p>
+                </div>
+                <div class="col">
+                  <p id='cat'>Category:</p>
+                  <br>
+                  <p id='color'>Color:</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer" style="background-color: #D3D3D3;">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Claim this item</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
       <!-- The core Firebase JS SDK is always required and must be listed first -->
       <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>

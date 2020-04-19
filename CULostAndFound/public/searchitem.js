@@ -92,7 +92,7 @@ searchButton.addEventListener('click', (e) =>{
     var stable = document.getElementById("searchTable");
     var counter=0;
     for(var elem in results){
-      stable.innerHTML+=`<tr onclick='searchModal(${counter})'><td>${results[elem].title}</td><td>${results[elem].location}</td><td>${results[elem].date}</td></tr>`;
+      stable.innerHTML+=`<tr data-toggle="modal" data-id="${counter}" data-toggle="modal" data-target="#myModal"><td>${results[elem].title}</td><td>${results[elem].location}</td><td>${results[elem].date}</td></tr>`;
       counter++
     }
 
