@@ -40,9 +40,9 @@ searchButton.addEventListener('click', (e) =>{
         category : icategory.value,
         date : idate.value
     }
-    
+
     querydatabase.push(inputData).then(() => {
-        
+
     })
 
     if (statusFilter != 'Any'){
@@ -68,7 +68,7 @@ searchButton.addEventListener('click', (e) =>{
     } else {
         var filteredItemLocation = filteredItemColor;
     }
-
+  
     if (categoryFilter != 'Any'){
         var filteredItemCategory = filteredItemLocation.filter(item => {
             return item.category === categoryFilter;
@@ -77,9 +77,16 @@ searchButton.addEventListener('click', (e) =>{
         var filteredItemCategory = filteredItemLocation;
     }
 
+    if (DateFilter != ''){
+        var filteredItemDate = filteredItemCategory.filter(item => {
+            return item.date >= DateFilter;
+        })
+    } else {
+        var filteredItemDate = filteredItemCategory;
+    }
 
 
-    results = filteredItemCategory;
+    results = filteredItemDate;
     
     if(results === undefined || results.length==0){
       document.getElementById("searchResults").innerHTML='No items matched your search.';
@@ -89,13 +96,11 @@ searchButton.addEventListener('click', (e) =>{
     var stable = document.getElementById("searchTable");
     var counter=0;
     for(var elem in results){
-      stable.innerHTML+=`<tr onclick='searchModal(${counter})'><td>${results[elem].title}</td><td>${results[elem].location}</td><td>${results[elem].date}</td></tr>`;
+      stable.innerHTML+=`<tr data-toggle="modal" data-id="${counter}" data-toggle="modal" data-target="#myModal"><td>${results[elem].title}</td><td>${results[elem].location}</td><td>${results[elem].date}</td></tr>`;
       counter++
     }
 
-    console.log(results);
 })
 
 function searchModal(counter){
 }
-
