@@ -19,7 +19,7 @@ const searchAllItems = () => {
             const id = childSnapshot.key;
             var childData = childSnapshot.val();
             childData.key = id;
-            console.log(childData)
+            allItems.push(childData);
         });
     });
 }
