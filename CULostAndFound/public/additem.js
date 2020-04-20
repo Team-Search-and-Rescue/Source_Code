@@ -1,6 +1,7 @@
 const iStatus = document.getElementById('status');
 const iTitle = document.getElementById('itemTitle');
 const iposterName = document.getElementById('itemposterName');
+const iposterEmail= document.getElementById('itemposterEmail');  //Added iposter email
 const icolor = document.getElementById('color');
 const ilocation = document.getElementById('itemlocation');
 const icategory = document.getElementById('category');
@@ -30,7 +31,7 @@ const addItem = () => {
     }
     console.log('Your item has been added successfully');
     ref.push(inputData).then(() => {
-        
+
         alert('Your item has been added successfully');
         location.reload();
     })
