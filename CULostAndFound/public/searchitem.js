@@ -16,8 +16,10 @@ const searchAllItems = () => {
     var itemsref = firebase.database().ref("items");
     itemsref.on('value', function(snapshot) {
         snapshot.forEach(function(childSnapshot){
+            const id = childSnapshot.key;
             var childData = childSnapshot.val();
-            allItems.push(childData);
+            childData.key = id;
+            console.log(childData)
         });
     });
 }
@@ -108,3 +110,7 @@ function modalPop(){
     console.log(index);
 });
 }
+
+claimItemButton.addEventListener('click', (e) =>{
+    console.log("claim button works")
+})
