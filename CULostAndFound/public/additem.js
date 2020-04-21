@@ -25,11 +25,12 @@ const addItem = () => {
         status : iStatus.value,
         category : icategory.value,
         postername : iposterName.value,
+        posteremail : iposterEmail.value,
         location : ilocation.value,
         color : icolor.value,
         date : idate.value
     }
-    console.log('Your item has been added successfully');
+    //console.log('Your item has been added successfully');
     ref.push(inputData).then(() => {
 
         alert('Your item has been added successfully');

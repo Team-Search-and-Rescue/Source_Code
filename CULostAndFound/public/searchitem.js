@@ -8,6 +8,7 @@ const idate = document.getElementById('date-lost');
 const database = firebase.database();
 var ref = database.ref('items');
 const querydatabase = database.ref('query');
+const claimedItems = database.ref('Claimed Items')
 var allItems = [];
 var results = [];
 
@@ -111,6 +112,6 @@ function modalPop(){
 });
 }
 
-claimItemButton.addEventListener('click', (e) =>{
-    console.log("claim button works")
-})
+// claimItemButton.addEventListener('click', (e) =>{
+//     console.log("claim button works")
+// })
