@@ -203,8 +203,6 @@
                 document.getElementById('cat').innerHTML+=result.category;
                 document.getElementById('cl').innerHTML+=result.color;
 
-                var posteremail = result.posteremail;
-
                 var bodyText="Hello, I found your listing on the Lost & Found website.  I lost a "+ result.title + ".  Thank you for finding it! \n What's the best way for me to get it? \n Thanks!";
 
                 claimItemButton.addEventListener('click', (e) => {
@@ -216,6 +214,8 @@
                   if (result.posteremail === undefined){
                     result.posteremail = 'unlisted';
                   }
+
+                  var posteremail = result.posteremail;
 
                   var archiveInput = {
                     key : result.key,
