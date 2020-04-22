@@ -38,7 +38,7 @@ searchButton.addEventListener('click', (e) =>{
     DateFilter = idate.value;
 
     var inputData = {
-        query : iQueryText.value,
+      //  query : iQueryText.value,
         status : istatus.value,
         color : icolor.value,
         location : ilocation.value,
