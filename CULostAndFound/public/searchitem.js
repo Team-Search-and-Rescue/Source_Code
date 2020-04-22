@@ -11,6 +11,8 @@ const querydatabase = database.ref('query');
 const claimedItems = database.ref('Claimed Items')
 var allItems = [];
 var results = [];
+var emailMessage;
+var fullMessage;
 
 const searchAllItems = () => {
 
@@ -108,9 +110,11 @@ searchButton.addEventListener('click', (e) =>{
 function modalPop(){
   $('#myModal').on('show.bs.modal', function (e) {
     var index = $(e.relatedTarget).attr('data-id');
-    console.log(index);
 });
 }
+
+
+
 
 // claimItemButton.addEventListener('click', (e) =>{
 //     console.log("claim button works")

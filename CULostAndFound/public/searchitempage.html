@@ -191,10 +191,18 @@
             $('#myModal').on('show.bs.modal', function (e) {
                 var index = $(e.relatedTarget).attr('data-id');
                 const database = firebase.database();
-                var itemsref = database.ref('items'); 
+                var itemsref = database.ref('items');
                 var archiveref = database.ref('item-archive');
-                
+
                 var result = results[index];
+
+                document.getElementById('stat').innerHTML="Status: ";
+                document.getElementById('pn').innerHTML="Poster Name: ";
+                document.getElementById('loc').innerHTML="Location: ";
+                document.getElementById('dl').innerHTML="Date Lost: ";
+                document.getElementById('cat').innerHTML="Category: ";
+                document.getElementById('cl').innerHTML="Color: ";
+
                 document.getElementById('iT').innerHTML=result.title;
                 document.getElementById('stat').innerHTML+=result.status;
                 document.getElementById('pn').innerHTML+=result.postername;
@@ -203,20 +211,22 @@
                 document.getElementById('cat').innerHTML+=result.category;
                 document.getElementById('cl').innerHTML+=result.color;
 
-                var bodyText="Hello, I found your listing on the Lost & Found website.  I lost a "+ result.title + ".  Thank you for finding it! \n What's the best way for me to get it? \n Thanks!";
-
                 claimItemButton.addEventListener('click', (e) => {
-                  //console.log("Move to other table now")
-                  //console.log(result.key);
+                  console.log("Move to other table now")
+                  console.log(result.key);
 
-                  //add item to archive table
-
+                //verify email has been entered
                   if (result.posteremail === undefined){
                     result.posteremail = 'someone@example.com';
+                    console.log("No email input");
                   }
 
-                  var posteremail = result.posteremail;
+                  //set custom email
+                  emailMessage=result.posteremail+"?Subject=Lost%20And%20Found&body=Hello, I found your listing on the Lost and Found website.  Thank you for finding my lost item! Please let me know how I can pick it up!";
+                  var elem = document.getElementById('claimItemButton');
+                      elem.href += emailMessage;
 
+                  //add item to archive table
                   var archiveInput = {
                     key : result.key,
                     title : result.title,
@@ -228,7 +238,7 @@
                     color : result.color,
                     date : result.date
                   }
-                  
+
                   archiveref.push(archiveInput).then(() => {
 
                     //console.log('added to archive');
@@ -237,11 +247,12 @@
                   //remove item from items table
 
                   itemsref.child(result.key).remove();
-                  
+
                   //console.log("item removed from db");
                   alert('Item claimed sucessfully!');
                   $('#myModal').modal('hide');
                   location.reload();
+
                 })
               });
                 </script>
@@ -275,7 +286,7 @@
           <!-- Modal footer -->
           <div class="modal-footer" style="background-color: #D3D3D3;">
             <!-- <button type="button" class="btn btn-success" data-dismiss="modal">Claim this item</button> -->
-            <a class="btn btn-success" id="claimItemButton" href="mailto:someone@example.com?Subject=Lost%20And%20Found&body=Hello, I found your listing on the Lost and Found website.  Thank you for finding my lost item! What's the best way for me to pick it up"  role="button" >Claim this item</a>
+            <a class="btn btn-success" id="claimItemButton" href= "mailto:"  role="button" >Claim this item</a>
           </div>
         </div>
       </div>
